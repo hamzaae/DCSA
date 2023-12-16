@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>La Press</title>
+{% endblock %}
+
+{% block body %}
+  
+<!-- Services One Comment Section -->
+<div class="lapress" id="lapress">
+    <h1>See what the hype is about</h1>
+    <div class="lapress__container">
+        <input spellcheck="false" placeholder="Enter the link here ..." required></input>
+        <button onclick="">Get Started</button>
+    </div>
+</div>
+    <!-- CONTENT -->
+	<section id="content">
+		<!-- MAIN -->
+		<main>
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-check-circle' ></i>
+					<span class="text">
+						<h3>1020</h3>
+						<p>Positive</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-x-circle' ></i>
+					<span class="text">
+						<h3>2834</h3>
+						<p>Negative</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-chart' ></i>
+					<span class="text">
+						<h3>$2543</h3>
+						<p>Chart</p>
+					</span>
+				</li>
+			</ul>
+
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Comments</h3>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Comment</th>
+								<th>Sentiment</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									
+									<p>John Doe</p>
+								</td>
+								
+								<td><span class="status positive">Positive</span></td>
+							</tr>
+							<tr>
+								<td>
+									
+									<p>John Doe</p>
+								</td>
+								
+								<td><span class="status negative">Negative</span></td>
+							</tr>
+							<tr>
+								<td>
+									
+									<p>John Doe</p>
+								</td>
+								
+								<td><span class="status positive">Process</span></td>
+							</tr>
+							<tr>
+								<td>
+									
+									<p>John Doe</p>
+								</td>
+								
+								<td><span class="status negative">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									
+									<p>John Doe</p>
+								</td>
+								
+								<td><span class="status positive">Completed</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+	</section>
+
+  
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Darija Sentiment Analysis</title>
+{% endblock %}
+
+{% block body %}
+
+  <!-- Hero Section -->
+  <div class="main" id="main">
+    <div class="main__container">
+      <div class="main__content">
+        <h1>Darija Comments</h1>
+        <h2>Sentiment Analysis</h2>
+        <p>💣🔥لي_مقروص_مقروص بلا نحل بلا ناموس#</p>
+        <button class="main__btn"><a href="#services">Get Started</a></button>
+      </div>
+      <div class="main__img--container">
+        <img id="main__img" src="static/images/pic1.svg" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Description Section -->
+  <div class="description" id="description">
+    <div class="description__container">
+        <div class="description__img--container">
+            <img id="description__img" src="static/images/pic5.svg" />
+        </div>
+        <div class="description__content">
+            <h2>What is DCSA •••* ?</h2>
+            <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
+                expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
+               <br> a quae totam ipsa illum minus laudantium?
+           </p>
+        </div>
+      </div>
+  </div>
+  
+    
+  <!-- Services Section -->
+  <div class="services" id="services">
+    <h1>See what the hype is about</h1>
+    <div class="services__container">
+      <div class="services__card">
+        <h2>One Comment</h2>
+        <p>Find whether a comment is Positive or Not</p>
+        <button onclick="redirectToOneCom()">Get Started</button>
+      </div>
+      <div class="services__card">
+        <h2>La Press</h2>
+        <p>Find whether an article's comments are Positive or Not</p>
+        <button onclick="redirectToLaPress()">Get Started</button>
+      </div>
+    </div>
+  </div>
+  
+
+  
+{% endblock %}
