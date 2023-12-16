@@ -90,6 +90,7 @@ def run_etl(link):
         # Soup Object containing all data
         soup = BeautifulSoup(webpage.content, "html.parser")
 
+        title = soup.find("h1", attrs={'class':'post-title'}).text.strip()
         comments = soup.find_all("div", attrs={'class':'comment-text'})
         comments_list = []
 
@@ -97,7 +98,7 @@ def run_etl(link):
         for comment in comments:
                 comments_list.append(comment.find("p").text.strip())
         
-        return comments_list
+        return title, comments_list
     except requests.exceptions.RequestException as e:
         # Handle any request exception (e.g., connection error)
         return f"Error: {e}"
@@ -110,4 +111,4 @@ def run_etl(link):
     
 
 if __name__ == "__main__":
-    print(run_etl("https://www.hespress.com/"))
+    print(run_etl(""))
