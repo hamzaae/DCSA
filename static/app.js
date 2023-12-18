@@ -14,9 +14,3 @@ function redirectToLaPress() {
   window.location.href = '/lapress';
 }
 
-function showContent(event) {
-  event.preventDefault(); // Prevent the default form submission behavior
-
-  // Show the content section
-  document.getElementById('content').style.display = 'flex';
-}

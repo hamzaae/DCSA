@@ -7,12 +7,87 @@
 {% block body %}
   <!-- Services One Comment Section -->
   <div class="onecom" id="onecom">
-    <h1>See what the hype is about</h1>
-    
-    <div class="onecom__container">
-      <button onclick="">📊 Goo</button>
-      <textarea spellcheck="false" placeholder=" دخل الكومونتير هنايا و شوف حبابك من عديانك  " required></textarea>
-    </div>
+    <h1>One Comment Analysis Live Demo</h1>
+    <form class="onecom__container" action="{{ url_for('onecom')}}" method="POST">
+      <button type="submit">📊 Goo</button>
+      <textarea id="commentInput" name="commentInput" spellcheck="false" placeholder=" دخل الكومونتير هنايا و شوف حبابك من عديانك  " required></textarea>
+    </form>
+
+    <!-- CONTENT -->
+    <section id="content" {% if form_submitted %}style="display: flex;"{% endif %}>
+      <!-- MAIN -->
+      <main>
+      {% if comments|length > 0 %}
+        <ul class="box-info">
+          <li>
+            <i class='bx bxs-check-circle' ></i>
+            <span class="text">
+              <h3>1020</h3>
+              <p>Positive</p>
+            </span>
+          </li>
+          <li>
+            <i class='bx bxs-x-circle' ></i>
+            <span class="text">
+              <h3>2834</h3>
+              <p>Negative</p>
+            </span>
+          </li>
+          <li>
+            <i class='bx bxs-chart' ></i>
+            <span class="text">
+              <h3>$2543</h3>
+              <p>Chart</p>
+            </span>
+          </li>
+        </ul>
+        <div class="table-data">
+          <div class="order">
+            <div class="head">
+              <h3>Article : {{title}}</h3>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Comment</th>
+                  <th>Sentiment</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for comment in comments %}
+                <tr>
+                  <td>
+                    <p>{{comment}}</p>
+                  </td>
+                  
+                  <td><span class="status positive">Positive</span></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+      {% else %}
+        {% if error_message %}
+          <div class="table-data">
+            <div class="order">
+              <div class="head">
+                <h3>{{error_message}}</h3>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div class="table-data">
+            <div class="order">
+              <div class="head">
+                <h3>There are no comments for this article</h3>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+          </div>
+        </div>
+      </main>
+    </section>
 
     
   </div>

@@ -5,15 +5,19 @@ app = Flask(__name__)
 
 
 
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/onecom')
+
+@app.route('/onecom', methods=['POST', 'GET'])
 def onecom():
-    return render_template('onecom.html')
+    if request.method == 'POST':
+        comment = request.form['commentInput']
+        return render_template("onecom.html", comment=comment, form_submitted=True)
+    else:
+        return render_template('onecom.html', form_submitted=False)
+
 
 @app.route('/lapress', methods=['POST', 'GET'])
 def lapress():
