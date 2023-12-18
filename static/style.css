@@ -657,6 +657,10 @@
       width: 300px;
     }
   }
+
+
+
+
   
   /* Footer CSS */
   .footer__container {
@@ -1182,4 +1186,234 @@ li {
 		min-width: 420px;
 	}
 	
+}
+
+
+/* API section */
+
+.api {
+  background: #131313;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.api h1 {
+  margin-top: 1px;
+  background-color: #ff8177;
+  background-image: linear-gradient(
+    to right,
+    #ff8177 0%,
+    #ff867a 0%,
+    #ff8c7f 21%,
+    #f99185 52%,
+    #cf556c 78%,
+    #b12a5b 100%
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  margin-bottom: 5rem;
+  font-size: 2.5rem;
+}
+
+.api h2 {
+  font-size: 4rem;
+  margin-top: 20px;
+  background-color: #ff8177;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.api .container {
+  width: 50%;
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.language {
+  color: white;
+  background-color: #1f4287;
+  padding: 12px 16px;
+  border-radius: 5px 5px 0 0;
+  text-align: right;
+}
+
+.code-wrapper {
+  position: relative;
+}
+
+.code-wrapper pre {
+  background-color: #071e3d;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 0 0 5px 5px;
+}
+
+#copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 7px;
+  background-color: #2d2d2d;
+  outline: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  opacity: 0;
+  border: 1px solid antiquewhite;
+}
+
+#copy-button.show-msg{
+    display: none;
+}
+
+#copy-button:hover {
+  background-color: #423e3e;
+}
+
+.code-wrapper:hover #copy-button {
+  opacity: 1;
+}
+body {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  line-height: 1.5;
+  background-color: #2d2d2d; /* Background color for the entire page */
+  color: #ccc; /* Default text color */
+}
+
+pre {
+  margin: 0;
+  overflow: auto;
+}
+
+code {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: pre-wrap;
+}
+
+.language-python .token.comment,
+.language-python .token.block-comment,
+.language-python .token.prolog,
+.language-python .token.doctype,
+.language-python .token.cdata {
+  color: #999;
+}
+
+.language-python .token.punctuation {
+  color: #ccc;
+}
+
+.language-python .token.tag,
+.language-python .token.attr-name,
+.language-python .token.namespace,
+.language-python .token.deleted {
+  color: #e2777a;
+}
+
+.language-python .token.function-name {
+  color: #6196cc;
+}
+
+.language-python .token.boolean,
+.language-python .token.number,
+.language-python .token.function {
+  color: #f08d49;
+}
+
+.language-python .token.property,
+.language-python .token.class-name,
+.language-python .token.constant,
+.language-python .token.symbol {
+  color: #f8c555;
+}
+
+.language-python .token.selector,
+.language-python .token.important,
+.language-python .token.atrule,
+.language-python .token.keyword,
+.language-python .token.builtin {
+  color: #cc99cd;
+}
+
+.language-python .token.string,
+.language-python .token.char,
+.language-python .token.attr-value,
+.language-python .token.regex,
+.language-python .token.variable {
+  color: #7ec699;
+}
+
+.language-python .token.operator,
+.language-python .token.entity,
+.language-python .token.url {
+  color: #67cdcc;
+}
+
+.language-python .token.important,
+.language-python .token.bold {
+  font-weight: bold;
+}
+
+.language-python .token.italic {
+  font-style: italic;
+}
+
+.language-python .token.entity {
+  cursor: help;
+}
+
+.language-python .token.inserted {
+  color: green;
+}
+
+
+@media screen and (max-width: 960px) {
+  .api {
+    height: 1600px;
+  }
+
+  .api h1 {
+    font-size: 2rem;
+    margin-top: 12rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .api {
+    height: 1400px;
+  }
+
+  .api h1 {
+    font-size: 1.2rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .api h2 {
+    font-size: 3rem;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .api h2 {
+    font-size: 2rem;
+  }
+
 }

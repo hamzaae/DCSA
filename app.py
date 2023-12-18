@@ -34,7 +34,16 @@ def lapress():
     else:
         return render_template('lapress.html', form_submitted=False)
 
+@app.route('/dcsa_api', methods=['POST'])
+def dcsa_api():
+    try:
+        text = request.form['text']
+        # Perform processing on the input text (replace this with your actual processing logic)
+        prediction = f"Processed result for: {text}"
 
+        return jsonify({'prediction': prediction, 'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e), 'success': False}), 500
 
 
 
