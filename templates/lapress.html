@@ -9,13 +9,13 @@
 <!-- Services One Comment Section -->
 <div class="lapress" id="lapress">
     <h1>See what the hype is about</h1>
-    <div class="lapress__container">
-        <input spellcheck="false" placeholder="Enter the link here ..." required></input>
-        <button onclick="">Get Started</button>
-    </div>
+	<form class="lapress__container" action="{{ url_for('lapress')}}" method="POST" onsubmit="showContent()">
+		<input id="linkInput" name="linkInput" spellcheck="false" placeholder="Enter the link here ..." required></input>
+		<button type="submit">Get Started</button>
+	</form>
 </div>
     <!-- CONTENT -->
-	<section id="content">
+	<section id="content" class="hidden-content">
 		<!-- MAIN -->
 		<main>
 
@@ -47,8 +47,9 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Comments</h3>
+						<h3>Article : {{title}}</h3>
 					</div>
+					{% if comments|length > 0 %}
 					<table>
 						<thead>
 							<tr>
@@ -57,15 +58,16 @@
 							</tr>
 						</thead>
 						<tbody>
+							{% for comment in comments %}
 							<tr>
 								<td>
-									
-									<p>John Doe</p>
+									<p>{{comment}}</p>
 								</td>
 								
 								<td><span class="status positive">Positive</span></td>
 							</tr>
-							<tr>
+							{% endfor %}
+							<!-- <tr>
 								<td>
 									
 									<p>John Doe</p>
@@ -96,9 +98,12 @@
 								</td>
 								
 								<td><span class="status positive">Completed</span></td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
+					{% else %}
+					<h3>There are no comments for this article</h3>
+					{% endif %}
 				</div>
 			</div>
 		</main>
