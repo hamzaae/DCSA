@@ -6,13 +6,12 @@ import os
 
 # ETL function
 def run_etl(link):
-
     try:
         load_dotenv()
 
         # add your user agent 
         usrAgnt = os.getenv("USER_AGENT")
-        HEADERS = ({'User-Agent':usrAgnt, 'Accept-Language': 'en-US, en;q=0.5'})
+        HEADERS = ({'User-Agent': usrAgnt, 'Accept-Language': 'en-US, en;q=0.5'})
 
         # HTTP Request
         webpage = requests.get(link, headers=HEADERS)
@@ -20,22 +19,24 @@ def run_etl(link):
         # Soup Object containing all data
         soup = BeautifulSoup(webpage.content, "html.parser")
 
-        title = soup.find("h1", attrs={'class':'post-title'}).text.strip()
-        comments = soup.find_all("div", attrs={'class':'comment-text'})
-        comments_list = []
+        title_element = soup.find("h1", attrs={'class': 'post-title'})
+        comments_elements = soup.find_all("div", attrs={'class': 'comment-text'})
 
-        # Loop for extracting links from Tag Objects
-        for comment in comments:
-                comments_list.append(comment.find("p").text.strip())
-        
-        return title, comments_list
+        if title_element and comments_elements:
+            title = title_element.text.strip()
+            comments_list = [comment.find("p").text.strip() for comment in comments_elements]
+            return title, comments_list
+        else:
+            return None, None
+
     except requests.exceptions.RequestException as e:
         # Handle any request exception (e.g., connection error)
-        return f"Error: {e}"
+        return f"Error: {e}", None
 
     except Exception as e:
         # Handle any other exception that might occur
-        return f"An unexpected error occurred: {e}"
+        return f"An unexpected error occurred: {e}", None
+
 
 
     

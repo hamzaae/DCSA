@@ -15,10 +15,10 @@
 	</form>
 </div>
     <!-- CONTENT -->
-	<section id="content" class="hidden-content">
+	<section id="content" {% if form_submitted %}style="display: flex;"{% endif %}>
 		<!-- MAIN -->
 		<main>
-
+		{% if comments|length > 0 %}
 			<ul class="box-info">
 				<li>
 					<i class='bx bxs-check-circle' ></i>
@@ -42,14 +42,11 @@
 					</span>
 				</li>
 			</ul>
-
-
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
 						<h3>Article : {{title}}</h3>
 					</div>
-					{% if comments|length > 0 %}
 					<table>
 						<thead>
 							<tr>
@@ -67,43 +64,27 @@
 								<td><span class="status positive">Positive</span></td>
 							</tr>
 							{% endfor %}
-							<!-- <tr>
-								<td>
-									
-									<p>John Doe</p>
-								</td>
-								
-								<td><span class="status negative">Negative</span></td>
-							</tr>
-							<tr>
-								<td>
-									
-									<p>John Doe</p>
-								</td>
-								
-								<td><span class="status positive">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									
-									<p>John Doe</p>
-								</td>
-								
-								<td><span class="status negative">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									
-									<p>John Doe</p>
-								</td>
-								
-								<td><span class="status positive">Completed</span></td>
-							</tr> -->
 						</tbody>
 					</table>
-					{% else %}
-					<h3>There are no comments for this article</h3>
-					{% endif %}
+		{% else %}
+			{% if error_message %}
+				<div class="table-data">
+					<div class="order">
+						<div class="head">
+							<h3>{{error_message}}</h3>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<div class="table-data">
+					<div class="order">
+						<div class="head">
+							<h3>There are no comments for this article</h3>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
 				</div>
 			</div>
 		</main>
