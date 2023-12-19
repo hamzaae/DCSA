@@ -38,7 +38,7 @@ def lapress():
 def dcsa_api():
     try:
         text = request.form['text']
-        # Perform processing on the input text (replace this with your actual processing logic)
+        
         prediction = f"Processed result for: {text}"
 
         return jsonify({'prediction': prediction, 'success': True})
