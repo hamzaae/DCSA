@@ -2,7 +2,7 @@ import urllib.request
 import json
 import os
 import ssl
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 def allowSelfSignedHttps(allowed):
     # bypass the server certificate verification on client side
@@ -25,7 +25,7 @@ def predict_api(text):
     url = 'https://dcsa-llm-api.francecentral.inference.ml.azure.com/score'
 
     # Replace this with the primary/secondary key or AMLToken for the endpoint
-    load_dotenv()
+    # load_dotenv()
     api_key = os.getenv("API_KEY")
     if not api_key:
         raise Exception("A key should be provided to invoke the endpoint")
