@@ -18,11 +18,33 @@
       <!-- MAIN -->
       <main>
         {% if label is not none and score is not none %}
+        <ul class="box-info">
+          <li>
+            <i class='bx bxs-category' ></i>
+            <span class="text">
+              <h3>{{label}}</h3>
+              <p>Prediction</p>
+            </span>
+          </li>
+          <li>
+            <i class='bx bxs-bot' ></i>
+            <span class="text">
+              <h3>{{score}}</h3>
+              <p>Score</p>
+            </span>
+          </li>
+          <!-- <li>
+            <i class='bx bxs-chart' ></i>
+            <span class="text">
+              <h3></h3>
+              <p>Chart</p>
+            </span>
+          </li> -->
+        </ul>
         <div class="table-data">
           <div class="order">
             <div class="head">
-              <h3>Comment : {{comment}}</h3>
-              <h3>Prediction : {{label}} | Score : {{score}}</h3>
+              <h3>Comment : <br> {{comment}}</h3>
             </div>
           </div>
       {% else %}

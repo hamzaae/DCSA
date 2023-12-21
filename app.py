@@ -16,7 +16,7 @@ def onecom():
     if request.method == 'POST':
         comment = request.form['commentInput']
         label, score = predict_api(comment)
-        return render_template("onecom.html", comment=comment, label=label, score=score, form_submitted=True)
+        return render_template("onecom.html", comment=comment, label=label, score=f"{score:.4f}", form_submitted=True)
     else:
         return render_template('onecom.html', form_submitted=False)
 
