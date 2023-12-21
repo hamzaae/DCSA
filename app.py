@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, render_template, url_for, request, redirect
+from use_api import predict_api
 from ws import run_etl
 
 app = Flask(__name__)
@@ -14,7 +15,8 @@ def index():
 def onecom():
     if request.method == 'POST':
         comment = request.form['commentInput']
-        return render_template("onecom.html", comment=comment, form_submitted=True)
+        label, score = predict_api(comment)
+        return render_template("onecom.html", comment=comment, label=label, score=score, form_submitted=True)
     else:
         return render_template('onecom.html', form_submitted=False)
 

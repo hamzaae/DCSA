@@ -17,54 +17,14 @@
     <section id="content" {% if form_submitted %}style="display: flex;"{% endif %}>
       <!-- MAIN -->
       <main>
-      {% if comments|length > 0 %}
-        <ul class="box-info">
-          <li>
-            <i class='bx bxs-check-circle' ></i>
-            <span class="text">
-              <h3>1020</h3>
-              <p>Positive</p>
-            </span>
-          </li>
-          <li>
-            <i class='bx bxs-x-circle' ></i>
-            <span class="text">
-              <h3>2834</h3>
-              <p>Negative</p>
-            </span>
-          </li>
-          <li>
-            <i class='bx bxs-chart' ></i>
-            <span class="text">
-              <h3>$2543</h3>
-              <p>Chart</p>
-            </span>
-          </li>
-        </ul>
+        {% if label is not none and score is not none %}
         <div class="table-data">
           <div class="order">
             <div class="head">
-              <h3>Article : {{title}}</h3>
+              <h3>Comment : {{comment}}</h3>
+              <h3>Prediction : {{label}} | Score : {{score}}</h3>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Comment</th>
-                  <th>Sentiment</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for comment in comments %}
-                <tr>
-                  <td>
-                    <p>{{comment}}</p>
-                  </td>
-                  
-                  <td><span class="status positive">Positive</span></td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
+          </div>
       {% else %}
         {% if error_message %}
           <div class="table-data">
