@@ -3,21 +3,28 @@ from flask import Flask, jsonify, render_template, url_for, request, redirect
 from mongoDB import *
 from utils.data import *
 from utils.model import *
-from utils.use_api import predict_api
+from utils.use_api import query
 from utils.ws import run_etl
 # from farasa.stemmer import FarasaStemmer
 import joblib
 
-app = Flask(__name__)
 
+############################################################################
 model_path = "model/dcsa-x.joblib"
 model = joblib.load(model_path)
+
 # stemmer = FarasaStemmer()
 emoji_mapping = create_emoji_mapping(pd.read_csv("Dataset/emojis.csv"))
 all_stopwords = get_stop_words("Dataset/all_stop_words.json")
 
 uri = os.getenv("MONGO_URI")
 client = connect_mongo(uri)
+
+HG_URL = "https://api-inference.huggingface.co/models/CAMeL-Lab/bert-base-arabic-camelbert-da-sentiment"
+hg_faceToken = os.getenv("HG_TOKEN")
+headers = {"Authorization": hg_faceToken}
+############################################################################
+
 
 def predict_api(comments, stemmer=False):
     """Make predictions on a set of data."""
@@ -37,20 +44,27 @@ def predict_api(comments, stemmer=False):
     #     stemmed_text = stemmer.stem(cleaned_text)
     # else:
     #     stemmed_text = cleaned_text
+    
     label = model.predict([value[2] for value in arabic_text.values()])
     score = model.predict_proba([value[2] for value in arabic_text.values()])
+
     db_data = []
     for key, value in arabic_text.items():
+        hg_label, hg_score = query({"inputs": value[2]}, HG_URL, headers)
         db_data.append({
             "comment": value[1],
             "cleaned_comment": value[2],
             "stemmed_comment": value[2],
             "labels": [[int(label[key]), float(score[key][0 if label[key]==0 else 1])], 
-                       [0, 0], 
+                       [hg_label, hg_score], 
                        [1, 1]]
         })
     insert_many_data(client, db_data, "dcsa", "comments")
     return label, score, arabic_text
+
+
+
+app = Flask(__name__)
 
 @app.route('/')
 def index():

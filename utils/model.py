@@ -15,3 +15,7 @@ def model_predict(model, X):
 def model_predict_proba(model, X):
     """Make probability predictions on a set of data."""
     return model.predict_proba(X)
+
+def train_model(model, X, y):
+    """Train a model on a set of data."""
+    return model.fit(X, y)
