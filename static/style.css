@@ -1159,10 +1159,10 @@ li {
 	border-radius: 20px;
 	font-weight: 700;
 }
-#content main .table-data .order table tr td .status.positive {
+#content main .table-data .order table tr td .status.Positive {
 	background: var(--blue);
 }
-#content main .table-data .order table tr td .status.negative {
+#content main .table-data .order table tr td .status.Negative {
 	background: var(--red);
 }
 

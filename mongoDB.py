@@ -58,26 +58,29 @@ def get_all_data(client, db_name, collection_name):
     result = collection.find()
     return result
 
-# Create a new client and connect to the server
-client = connect_mongo(uri)
 
-data_to_insert = {
-  "comment": "Comment 1",
-  "cleaned_comment": "Comment Cleaned 1",
-  "stemmed_comment": "Comment Stemmed 1",
-  "labels": [
-    1,
-    1,
-    0
-  ]
-}
+if __name__ == "__main__":
+    # Create a new client and connect to the server
+    client = connect_mongo(uri)
 
-# insert_one_data(client, data_to_insert, "dcsa", "comments")
+    data_to_insert = {
+      "comment": "Comment 1",
+      "cleaned_comment": "Comment Cleaned 1",
+      "stemmed_comment": "Comment Stemmed 1",
+      "labels": [
+        1,
+        1,
+        0
+      ]
+    }
 
-cursor = find_many_data(client, "dcsa", "comments")
+    # insert_one_data(client, data_to_insert, "dcsa", "comments")
 
-for document in cursor:
-    print(document.get("comment"))
+    cursor = find_many_data(client, "dcsa", "comments")
 
-# Close the MongoDB connection
-client.close()
+    for document in cursor:
+        print(document.get("comment"))
+
+    # Close the MongoDB connection
+    client.close()
+

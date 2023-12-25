@@ -38,6 +38,18 @@ def predict_api(comments, stemmer=False):
     #     stemmed_text = cleaned_text
     label = model.predict([value[2] for value in arabic_text.values()])
     score = model.predict_proba([value[2] for value in arabic_text.values()])
+    db_data = []
+    for key, value in arabic_text.items():
+        db_data.append({
+            "comment": value[1],
+            "cleaned_comment": value[2],
+            "stemmed_comment": value[2],
+            "labels": [[int(label[key]), float(score[key][0 if label[key]==0 else 1])], 
+                       [0, 0], 
+                       [1, 1]]
+        })
+    print(db_data)
+    insert_many_data(client, db_data, "dcsa", "comments")
     return label, score, arabic_text
 
 @app.route('/')
@@ -57,13 +69,10 @@ def onecom():
         cc = artex[0][2]
         if at==1:
             at = "Original"
-            print(at)
         elif at==-1:
             at = "Translated"
-            print(at)
         else:
             at = "Not Sure"
-            print(at)
         return render_template("onecom.html", comment=comment, cc=cc, at=at, label=label, score=f"{score:.4f}", form_submitted=True)
     else:
         return render_template('onecom.html', form_submitted=False)
