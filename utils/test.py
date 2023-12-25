@@ -1,17 +1,9 @@
-from flask import Flask, render_template
-import json
+import requests
 
-app = Flask(__name__)
+url = 'http://127.0.0.1:5000/dcsa_api'
+text = 'slam hani mzyan'  # Replace with the actual text you want to send
 
-@app.route('/')
-def index():
-    # Read the JSON file
-    with open('derrej.json', encoding='utf-8') as f:
-        data = json.load(f)
+payload = {'text': text}
+response = requests.post(url, data=payload)
 
-
-    # Pass the data to the template
-    return render_template('forms.html', data=data)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+print(response.json())

@@ -48,7 +48,6 @@ def predict_api(comments, stemmer=False):
                        [0, 0], 
                        [1, 1]]
         })
-    print(db_data)
     insert_many_data(client, db_data, "dcsa", "comments")
     return label, score, arabic_text
 
@@ -110,10 +109,14 @@ def lapress():
 def dcsa_api():
     try:
         text = request.form['text']
-        
-        prediction = f"Processed result for: {text}"
-
-        return jsonify({'prediction': prediction, 'success': True})
+        label, score, arabic_text = predict_api([text])
+        result = {
+            'label': int(label[0]),
+            'score': float(score[0][0] if label[0] == 0 else score[0][1]),
+            'arabic_text': arabic_text[0][1],
+            'cleaned_text': arabic_text[0][2]
+        }
+        return jsonify({'result': result, 'success': True})
     except Exception as e:
         return jsonify({'error': str(e), 'success': False}), 500
 
