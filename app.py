@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, render_template, url_for, request, redirect
 from mongoDB import *
 from utils.data import *
@@ -15,7 +16,7 @@ model = joblib.load(model_path)
 emoji_mapping = create_emoji_mapping(pd.read_csv("Dataset/emojis.csv"))
 all_stopwords = get_stop_words("Dataset/all_stop_words.json")
 
-uri = "mongodb+srv://hamzaae:7cVLGsNmmUAnWgAv@cluster0.vpvqzd4.mongodb.net/?retryWrites=true&w=majority"
+uri = os.getenv("MONGO_URI")
 client = connect_mongo(uri)
 
 def predict_api(comments, stemmer=False):
