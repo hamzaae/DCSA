@@ -1142,6 +1142,13 @@ li {
 	padding-left: 6px;
 }
 
+#content main .table-data .order table tr td:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 8px;
+	padding-left: 2px;
+}
+
 #content main .table-data .order table tbody tr:hover {
 	background: var(--grey); /* to be changed*/
 }
@@ -1152,17 +1159,17 @@ li {
 	border-radius: 20px;
 	font-weight: 700;
 }
-#content main .table-data .order table tr td .status.positive {
+#content main .table-data .order table tr td .status.Positive {
 	background: var(--blue);
 }
-#content main .table-data .order table tr td .status.negative {
+#content main .table-data .order table tr td .status.Negative {
 	background: var(--red);
 }
 
 
 #content main .table-data .order table th:first-child,
 #content main .table-data .order table td:first-child {
-  width: 90%;
+  width: 80%;
 }
 
 #content main .table-data .order table th:last-child,

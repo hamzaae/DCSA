@@ -52,16 +52,18 @@
 							<tr>
 								<th>Comment</th>
 								<th>Sentiment</th>
+								<th>Score</th>
 							</tr>
 						</thead>
 						<tbody>
-							{% for comment in comments %}
+							{% for i in range(comments|length) %}
 							<tr>
 								<td>
-									<p>{{comment}}</p>
+									<p>{{comments[i]}}</p>
 								</td>
 								
-								<td><span class="status positive">Positive</span></td>
+								<td><span class="status {{c_label[i]}}">{{c_label[i]}}</span></td>
+								<td><span class="status {{c_label[i]}}">{{c_score[i]}}</span></td>
 							</tr>
 							{% endfor %}
 						</tbody>
