@@ -11,7 +11,8 @@ The dataset used in this project consists of 12,000 rows of comments from divers
 ## Models
 
 Different machine learning and deep learning models were experimented with, and the DistilBERT uncased model was fine-tuned on various hyperparameters. The selection of the best metrics for each model was a crucial step in determining the optimal sentiment analysis model.
-![full](https://github.com/hamzaae/DCSA/Academic/pipeline.png)
+![pipeline](https://github.com/hamzaae/DCSA/assets/122805922/7613e61e-40ab-48cb-a300-884e2eca8e81)
+
 
 ## Flask App
 
@@ -23,7 +24,8 @@ The web app has been deployed using Render, making it accessible for users to ex
 
 In the MLOPS (Machine Learning Operations) phase, every comment is stored in MongoDB along with the model's prediction. An external language model (LLM) from Hugging Face is used in conjunction with the trained model, and the results are combined to assign a sentiment score. The comment is then labeled with a resultant score, utilizing a weighted approach (0.7 for the LLM and 0.3 for the custom model). The model is retrained periodically to adapt to evolving patterns in sentiment expression.
 
-![full]([https://github.com/hamzaae/DCSA/Academic/full.png](https://github.com/hamzaae/DCSA/blob/main/Academic/full.png))
+![full](https://github.com/hamzaae/DCSA/assets/122805922/80ce9063-d764-4bd3-9020-fe3dcd1d8380)
+
 
 
 ## Deployment
@@ -39,4 +41,5 @@ To utilize the sentiment analysis functionality, you can visit the web app at [l
 Special thanks to the contributors and open-source community for their support and collaboration on this project.
 
 Feel free to explore, contribute, and use DCSA for your sentiment analysis needs!
+
 Link to paper: ![full](https://github.com/hamzaae/DCSA/Academic/paper.pdf)
