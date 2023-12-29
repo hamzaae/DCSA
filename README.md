@@ -36,6 +36,14 @@ NB. It's available for a periode!
 
 To utilize the sentiment analysis functionality, you can visit the web app at [lfahim.tech](https://lfahim.tech) for the live demo. Additionally, the API endpoint is available for integration into your own applications.
 
+Some screenshots:
+![image](https://github.com/hamzaae/DCSA/assets/122805922/110e1df0-ca59-4c93-9c47-8e210f7e7d6c)
+![image](https://github.com/hamzaae/DCSA/assets/122805922/888bf76a-10ae-42cb-b844-25ad1ec5b254)
+![image](https://github.com/hamzaae/DCSA/assets/122805922/713d9849-8fe5-476e-83ba-43fafa8bfe71)
+![image](https://github.com/hamzaae/DCSA/assets/122805922/fdf36e91-6840-4bf4-b1c9-befffec27bd6)
+
+
+
 ## Acknowledgments
 
 Special thanks to the contributors and open-source community for their support and collaboration on this project.
