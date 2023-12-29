@@ -51,13 +51,18 @@ def predict_api(comments, stemmer=False):
     db_data = []
     for key, value in arabic_text.items():
         hg_label, hg_score = query({"inputs": value[2]}, HG_URL, headers)
+
+        combined_score = (0.7 * hg_score - 0.3 * score[key][0 if label[key]==0 else 1]) / abs(0.7 * hg_score - 0.3 * score[key][0 if label[key]==0 else 1])
+        s_combined_score = (combined_score) / abs(combined_score)
+        comn_label = hg_label if hg_label==1 else int(label[key])
+
         db_data.append({
             "comment": value[1],
             "cleaned_comment": value[2],
             "stemmed_comment": value[2],
             "labels": [[int(label[key]), float(score[key][0 if label[key]==0 else 1])], 
                        [hg_label, hg_score], 
-                       [1, 1]]
+                       [comn_label,s_combined_score]]
         })
     insert_many_data(client, db_data, "dcsa", "comments")
     return label, score, arabic_text
