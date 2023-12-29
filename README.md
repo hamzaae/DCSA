@@ -31,7 +31,7 @@ In the MLOPS (Machine Learning Operations) phase, every comment is stored in Mon
 ## Deployment
 
 The DCSA project is live at [lfahim.tech](https://lfahim.tech), providing users with a practical and interactive way to analyze sentiment in Darija comments.
-
+NB. It's available for a periode!
 ## How to Use
 
 To utilize the sentiment analysis functionality, you can visit the web app at [lfahim.tech](https://lfahim.tech) for the live demo. Additionally, the API endpoint is available for integration into your own applications.
@@ -42,4 +42,3 @@ Special thanks to the contributors and open-source community for their support a
 
 Feel free to explore, contribute, and use DCSA for your sentiment analysis needs!
 
-Link to paper: ![full](https://github.com/hamzaae/DCSA/Academic/paper.pdf)
