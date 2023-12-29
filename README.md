@@ -23,7 +23,7 @@ The web app has been deployed using Render, making it accessible for users to ex
 
 In the MLOPS (Machine Learning Operations) phase, every comment is stored in MongoDB along with the model's prediction. An external language model (LLM) from Hugging Face is used in conjunction with the trained model, and the results are combined to assign a sentiment score. The comment is then labeled with a resultant score, utilizing a weighted approach (0.7 for the LLM and 0.3 for the custom model). The model is retrained periodically to adapt to evolving patterns in sentiment expression.
 
-![full](https://github.com/hamzaae/DCSA/Academic/full.png)
+![full]([https://github.com/hamzaae/DCSA/Academic/full.png](https://github.com/hamzaae/DCSA/blob/main/Academic/full.png))
 
 
 ## Deployment
