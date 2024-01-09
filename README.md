@@ -50,7 +50,5 @@ Some screenshots:
 
 ## Acknowledgments
 
-Special thanks to the contributors and open-source community for their support and collaboration on this project.
-
 Feel free to explore, contribute, and use DCSA for your sentiment analysis needs!
 
