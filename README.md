@@ -31,7 +31,9 @@ In the MLOPS (Machine Learning Operations) phase, every comment is stored in Mon
 ## Deployment
 
 The DCSA project is live at [lfahim.tech](https://lfahim.tech), providing users with a practical and interactive way to analyze sentiment in Darija comments.
-NB. 
+
+
+**NB.** 
 - It's available for a periode!
 - Please be aware that the free deployment of the LLM model from Hugging Face may occasionally result in internal server errors. If you encounter such errors, we recommend going back and reloading the page once or twice. Additionally, please note that the website loading speed may be slower due to the free deployment. Thank you for your understanding! XD hh
 ## How to Use
