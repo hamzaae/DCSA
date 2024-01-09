@@ -8,6 +8,8 @@ DCSA (Darija Comments Sentiment Analysis) is a project that focuses on sentiment
 
 The dataset used in this project consists of 12,000 rows of comments from diverse domains, including sports, religion, economy, politics, and more. The data preprocessing pipeline involves normalization, stemming, removing stop words, and transforming emojis into words, all while keeping the Darija text intact.
 
+**Important:** Please be aware that the dataset utilized includes explicit language (bad words) in Darija.
+
 ## Models
 
 Different machine learning and deep learning models were experimented with, and the DistilBERT uncased model was fine-tuned on various hyperparameters. The selection of the best metrics for each model was a crucial step in determining the optimal sentiment analysis model.
